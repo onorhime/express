@@ -97,16 +97,16 @@ class DashboardController extends AbstractController
             $address = "";
             switch($request->get('method')) {
                 case "btc":
-                    $address = "0x03CedBa3A2F79bC4E18a44cb839dAB7955bEd5E6BTC";
+                    $address = "1E5nRg7WwNJ8iagCEYjkpH3GyLfyUkaePh";
                     break;
                 case "eth":
-                    $address = "0x03CedBa3A2F79bC4E18a44cb839dAB7955bEd5E6ETH";
+                    $address = "0x4Cd80465D93921fa4A22FA7530d858bbAe70a907";
                     break;
                 case "usdt":
-                    $address = "0x03CedBa3A2F79bC4E18a44cb839dAB7955bEd5E6CUSDT";
+                    $address = "THmw6gby5c2bMhqvtuQmeJmikXALa2PJyi";
                     break;  
                 default:
-                    $address = "0x03CedBa3A2F79bC4E18a44cb839dAB7955bEd5E6V";
+                    $address = "Invalid Wallet Selected";
                 }
             return $this->render('dashboard/payment.html.twig', [
                 'path' => 'deposit',

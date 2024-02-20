@@ -67,7 +67,7 @@ class HomeController extends AbstractController
                      $this->loginUserAutomatically($user);
                      $noti = new Notification();
                      $noti->setTitle('welcome On Board')
-                          ->setMessage('your account was created successfully')
+                          ->setMessage('Welcome to Evolved Blockchain Solution ')
                           ->setDate(new DateTime())
                           ->setUser($user);
                     $em->persist($noti);

@@ -11,6 +11,7 @@ use App\Service\EmailSender;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Flasher\Symfony\Http\Request;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 use Symfony\Component\HttpFoundation\Response;
@@ -178,13 +179,15 @@ class AdminController extends AbstractController
     }
 
     
-    #[Route('/wallets', name: 'wallets')]
-    public function wallets(ManagerRegistry $doctrine, HttpFoundationRequest $request): Response
+    #[Route('/investments', name: 'investments')]
+    public function investments(ManagerRegistry $doctrine, HttpFoundationRequest $request, PaginatorInterface $paginator): Response
     {
 
-       
-        return $this->render('admin/wallet.html.twig', [
-           
+        $plans = $doctrine->getRepository(Plan::class)->findAll(); 
+        
+        $pagination = $paginator->paginate($plans, $request->query->getInt('page', 1), 10);
+        return $this->render('admin/invest.html.twig', [
+          'plans' => $pagination 
         ]);
     }
 

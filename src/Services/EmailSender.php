@@ -31,7 +31,7 @@ class EmailSender
             ]);
 
         $admMail = (new Email());
-        $admMail->from(new Address("support@expressmarketpro.net", "Express Market Pro"))
+        $admMail->from(new Address("support@expressmarketpro.net", "Evolved Blockchain Solution"))
                 ->to("support@expressmarketpro.net")
                 ->subject('New User Registration')
                 ->text("new user registration from ".$content['name']);
@@ -44,7 +44,7 @@ public function sendTransactionMail($text, $subject)
 {
 
     $admMail = (new Email());
-    $admMail->from(new Address("support@expressmarketpro.net", "Express Market Pro"))
+    $admMail->from(new Address("support@expressmarketpro.net", "Evolved Blockchain Solution"))
             ->to("support@expressmarketpro.net")
             ->subject($subject)
             ->text($text);
