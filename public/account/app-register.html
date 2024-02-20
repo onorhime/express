@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>Dmgblockchain</title>
+    <meta name="description" content="Dmgblockchain HTML Mobile Template">
+    <meta name="keywords" content="bootstrap, wallet, banking, fintech mobile template, cordova, phonegap, mobile, html, responsive" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="__manifest.json">
+    <script src="js/global.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- loader -->
+     <!-- loader2 -->
+     <div id="loader2" class="hidden l">
+        <img src="assets/img/loading-icon.png" alt="icon" class="loading-icon">
+    </div>
+    <!-- * loader2 -->
+      
+   
+
+    <!-- App Header -->
+    <div class="appHeader no-border transparent position-absolute">
+        <div class="left">
+            <a href="#" class="headerButton goBack">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="pageTitle"></div>
+        <div class="right">
+            <a href="app-login.html" class="headerButton">
+                Login
+            </a>
+        </div>
+    </div>
+    <!-- * App Header -->
+    <!-- App Capsule -->
+    <div id="appCapsule">
+        <div class="section mt-2 text-center">
+            <h1>Register now</h1>
+            <h4>Create an account</h4>
+        </div>
+        <div class="section mt-3 text-center">
+            <div class="avatar-section">
+                <video style="display: none;" id="webcam" autoplay playsinline width="150" height="150"  class="imaged "></video>
+                <canvas id="canvas" class="d-none"></canvas>
+                <a href="#">
+                    <img src="assets/img/sample/avatar/avatar10.jpg" alt="avatar" id="image" class="imaged w100 rounded">
+                    <span  class="button" id="iconspan">
+                        <ion-icon id="opencam" onclick="image()" name="camera-outline" data-bs-toggle="modal" data-bs-target="#faceVerification"></ion-icon>
+                        <ion-icon id="snap" style="display: none;" name="camera-outline"></ion-icon>
+                    </span>
+                    
+                </a>
+            </div>
+        </div>
+        <div class="section mb-5 p-2">
+            <form>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="email1">Legal-Name</label>
+                                <input type="text" class="form-control" id="lname" placeholder="Your Full Name">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="email1">E-mail</label>
+                                <input type="email" class="form-control" id="email1" placeholder="Your e-mail">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="email1">Country</label>
+                                <select onchange="change()" class="form-control" name="country" id="country">
+                                    <option style="background-color: #161129;" value="Afganistan">Afghanistan</option>
+                                            <option style="background-color: #161129;" value="Albania">Albania</option>
+                                            <option style="background-color: #161129;" value="Algeria">Algeria</option>
+                                            <option style="background-color: #161129;" value="American Samoa">American Samoa</option>
+                                            <option style="background-color: #161129;" value="Andorra">Andorra</option>
+                                            <option style="background-color: #161129;" value="Angola">Angola</option>
+                                            <option style="background-color: #161129;" value="Anguilla">Anguilla</option>
+                                            <option style="background-color: #161129;" value="Antigua &amp; Barbuda">Antigua &amp; Barbuda</option>
+                                            <option style="background-color: #161129;" value="Argentina">Argentina</option>
+                                            <option style="background-color: #161129;" value="Armenia">Armenia</option>
+                                            <option style="background-color: #161129;" value="Aruba">Aruba</option>
+                                            <option style="background-color: #161129;" value="Australia">Australia</option>
+                                            <option style="background-color: #161129;" value="Austria">Austria</option>
+                                            <option style="background-color: #161129;" value="Azerbaijan">Azerbaijan</option>
+                                            <option style="background-color: #161129;" value="Bahamas">Bahamas</option>
+                                            <option style="background-color: #161129;" value="Bahrain">Bahrain</option>
+                                            <option style="background-color: #161129;" value="Bangladesh">Bangladesh</option>
+                                            <option style="background-color: #161129;" value="Barbados">Barbados</option>
+                                            <option style="background-color: #161129;" value="Belarus">Belarus</option>
+                                            <option style="background-color: #161129;" value="Belgium">Belgium</option>
+                                            <option style="background-color: #161129;" value="Belize">Belize</option>
+                                            <option style="background-color: #161129;" value="Benin">Benin</option>
+                                            <option style="background-color: #161129;" value="Bermuda">Bermuda</option>
+                                            <option style="background-color: #161129;" value="Bhutan">Bhutan</option>
+                                            <option style="background-color: #161129;" value="Bolivia">Bolivia</option>
+                                            <option style="background-color: #161129;" value="Bonaire">Bonaire</option>
+                                            <option style="background-color: #161129;" value="Bosnia &amp; Herzegovina">Bosnia &amp; Herzegovina</option>
+                                            <option style="background-color: #161129;" value="Botswana">Botswana</option>
+                                            <option style="background-color: #161129;" value="Brazil">Brazil</option>
+                                            <option style="background-color: #161129;" value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                                            <option style="background-color: #161129;" value="Brunei">Brunei</option>
+                                            <option style="background-color: #161129;" value="Bulgaria">Bulgaria</option>
+                                            <option style="background-color: #161129;" value="Burkina Faso">Burkina Faso</option>
+                                            <option style="background-color: #161129;" value="Burundi">Burundi</option>
+                                            <option style="background-color: #161129;" value="Cambodia">Cambodia</option>
+                                            <option style="background-color: #161129;" value="Cameroon">Cameroon</option>
+                                            <option style="background-color: #161129;" value="Canada">Canada</option>
+                                            <option style="background-color: #161129;" value="Canary Islands">Canary Islands</option>
+                                            <option style="background-color: #161129;" value="Cape Verde">Cape Verde</option>
+                                            <option style="background-color: #161129;" value="Cayman Islands">Cayman Islands</option>
+                                            <option style="background-color: #161129;" value="Central African Republic">Central African Republic</option>
+                                            <option style="background-color: #161129;" value="Chad">Chad</option>
+                                            <option style="background-color: #161129;" value="Channel Islands">Channel Islands</option>
+                                            <option style="background-color: #161129;" value="Chile">Chile</option>
+                                            <option style="background-color: #161129;" value="China">China</option>
+                                            <option style="background-color: #161129;" value="Christmas Island">Christmas Island</option>
+                                            <option style="background-color: #161129;" value="Cocos Island">Cocos Island</option>
+                                            <option style="background-color: #161129;" value="Colombia">Colombia</option>
+                                            <option style="background-color: #161129;" value="Comoros">Comoros</option>
+                                            <option style="background-color: #161129;" value="Congo">Congo</option>
+                                            <option style="background-color: #161129;" value="Cook Islands">Cook Islands</option>
+                                            <option style="background-color: #161129;" value="Costa Rica">Costa Rica</option>
+                                            <option style="background-color: #161129;" value="Cote DIvoire">Cote D'Ivoire</option>
+                                            <option style="background-color: #161129;" value="Croatia">Croatia</option>
+                                            <option style="background-color: #161129;" value="Cuba">Cuba</option>
+                                            <option style="background-color: #161129;" value="Curaco">Curacao</option>
+                                            <option style="background-color: #161129;" value="Cyprus">Cyprus</option>
+                                            <option style="background-color: #161129;" value="Czech Republic">Czech Republic</option>
+                                            <option style="background-color: #161129;" value="Denmark">Denmark</option>
+                                            <option style="background-color: #161129;" value="Djibouti">Djibouti</option>
+                                            <option style="background-color: #161129;" value="Dominica">Dominica</option>
+                                            <option style="background-color: #161129;" value="Dominican Republic">Dominican Republic</option>
+                                            <option style="background-color: #161129;" value="East Timor">East Timor</option>
+                                            <option style="background-color: #161129;" value="Ecuador">Ecuador</option>
+                                            <option style="background-color: #161129;" value="Egypt">Egypt</option>
+                                            <option style="background-color: #161129;" value="El Salvador">El Salvador</option>
+                                            <option style="background-color: #161129;" value="Equatorial Guinea">Equatorial Guinea</option>
+                                            <option style="background-color: #161129;" value="Eritrea">Eritrea</option>
+                                            <option style="background-color: #161129;" value="Estonia">Estonia</option>
+                                            <option style="background-color: #161129;" value="Ethiopia">Ethiopia</option>
+                                            <option style="background-color: #161129;" value="Falkland Islands">Falkland Islands</option>
+                                            <option style="background-color: #161129;" value="Faroe Islands">Faroe Islands</option>
+                                            <option style="background-color: #161129;" value="Fiji">Fiji</option>
+                                            <option style="background-color: #161129;" value="Finland">Finland</option>
+                                            <option style="background-color: #161129;" value="France">France</option>
+                                            <option style="background-color: #161129;" value="French Guiana">French Guiana</option>
+                                            <option style="background-color: #161129;" value="French Polynesia">French Polynesia</option>
+                                            <option style="background-color: #161129;" value="French Southern Ter">French Southern Ter</option>
+                                            <option style="background-color: #161129;" value="Gabon">Gabon</option>
+                                            <option style="background-color: #161129;" value="Gambia">Gambia</option>
+                                            <option style="background-color: #161129;" value="Georgia">Georgia</option>
+                                            <option style="background-color: #161129;" value="Germany">Germany</option>
+                                            <option style="background-color: #161129;" value="Ghana">Ghana</option>
+                                            <option style="background-color: #161129;" value="Gibraltar">Gibraltar</option>
+                                            <option style="background-color: #161129;" value="Great Britain">Great Britain</option>
+                                            <option style="background-color: #161129;" value="Greece">Greece</option>
+                                            <option style="background-color: #161129;" value="Greenland">Greenland</option>
+                                            <option style="background-color: #161129;" value="Grenada">Grenada</option>
+                                            <option style="background-color: #161129;" value="Guadeloupe">Guadeloupe</option>
+                                            <option style="background-color: #161129;" value="Guam">Guam</option>
+                                            <option style="background-color: #161129;" value="Guatemala">Guatemala</option>
+                                            <option style="background-color: #161129;" value="Guinea">Guinea</option>
+                                            <option style="background-color: #161129;" value="Guyana">Guyana</option>
+                                            <option style="background-color: #161129;" value="Haiti">Haiti</option>
+                                            <option style="background-color: #161129;" value="Hawaii">Hawaii</option>
+                                            <option style="background-color: #161129;" value="Honduras">Honduras</option>
+                                            <option style="background-color: #161129;" value="Hong Kong">Hong Kong</option>
+                                            <option style="background-color: #161129;" value="Hungary">Hungary</option>
+                                            <option style="background-color: #161129;" value="Iceland">Iceland</option>
+                                            <option style="background-color: #161129;" value="India">India</option>
+                                            <option style="background-color: #161129;" value="Indonesia">Indonesia</option>
+                                            <option style="background-color: #161129;" value="Iran">Iran</option>
+                                            <option style="background-color: #161129;" value="Iraq">Iraq</option>
+                                            <option style="background-color: #161129;" value="Ireland">Ireland</option>
+                                            <option style="background-color: #161129;" value="Isle of Man">Isle of Man</option>
+                                            <option style="background-color: #161129;" value="Israel">Israel</option>
+                                            <option style="background-color: #161129;" value="Italy">Italy</option>
+                                            <option style="background-color: #161129;" value="Jamaica">Jamaica</option>
+                                            <option style="background-color: #161129;" value="Japan">Japan</option>
+                                            <option style="background-color: #161129;" value="Jordan">Jordan</option>
+                                            <option style="background-color: #161129;" value="Kazakhstan">Kazakhstan</option>
+                                            <option style="background-color: #161129;" value="Kenya">Kenya</option>
+                                            <option style="background-color: #161129;" value="Kiribati">Kiribati</option>
+                                            <option style="background-color: #161129;" value="Korea North">Korea North</option>
+                                            <option style="background-color: #161129;" value="Korea Sout">Korea South</option>
+                                            <option style="background-color: #161129;" value="Kuwait">Kuwait</option>
+                                            <option style="background-color: #161129;" value="Kyrgyzstan">Kyrgyzstan</option>
+                                            <option style="background-color: #161129;" value="Laos">Laos</option>
+                                            <option style="background-color: #161129;" value="Latvia">Latvia</option>
+                                            <option style="background-color: #161129;" value="Lebanon">Lebanon</option>
+                                            <option style="background-color: #161129;" value="Lesotho">Lesotho</option>
+                                            <option style="background-color: #161129;" value="Liberia">Liberia</option>
+                                            <option style="background-color: #161129;" value="Libya">Libya</option>
+                                            <option style="background-color: #161129;" value="Liechtenstein">Liechtenstein</option>
+                                            <option style="background-color: #161129;" value="Lithuania">Lithuania</option>
+                                            <option style="background-color: #161129;" value="Luxembourg">Luxembourg</option>
+                                            <option style="background-color: #161129;" value="Macau">Macau</option>
+                                            <option style="background-color: #161129;" value="Macedonia">Macedonia</option>
+                                            <option style="background-color: #161129;" value="Madagascar">Madagascar</option>
+                                            <option style="background-color: #161129;" value="Malaysia">Malaysia</option>
+                                            <option style="background-color: #161129;" value="Malawi">Malawi</option>
+                                            <option style="background-color: #161129;" value="Maldives">Maldives</option>
+                                            <option style="background-color: #161129;" value="Mali">Mali</option>
+                                            <option style="background-color: #161129;" value="Malta">Malta</option>
+                                            <option style="background-color: #161129;" value="Marshall Islands">Marshall Islands</option>
+                                            <option style="background-color: #161129;" value="Martinique">Martinique</option>
+                                            <option style="background-color: #161129;" value="Mauritania">Mauritania</option>
+                                            <option style="background-color: #161129;" value="Mauritius">Mauritius</option>
+                                            <option style="background-color: #161129;" value="Mayotte">Mayotte</option>
+                                            <option style="background-color: #161129;" value="Mexico">Mexico</option>
+                                            <option style="background-color: #161129;" value="Midway Islands">Midway Islands</option>
+                                            <option style="background-color: #161129;" value="Moldova">Moldova</option>
+                                            <option style="background-color: #161129;" value="Monaco">Monaco</option>
+                                            <option style="background-color: #161129;" value="Mongolia">Mongolia</option>
+                                            <option style="background-color: #161129;" value="Montserrat">Montserrat</option>
+                                            <option style="background-color: #161129;" value="Morocco">Morocco</option>
+                                            <option style="background-color: #161129;" value="Mozambique">Mozambique</option>
+                                            <option style="background-color: #161129;" value="Myanmar">Myanmar</option>
+                                            <option style="background-color: #161129;" value="Nambia">Nambia</option>
+                                            <option style="background-color: #161129;" value="Nauru">Nauru</option>
+                                            <option style="background-color: #161129;" value="Nepal">Nepal</option>
+                                            <option style="background-color: #161129;" value="Netherland Antilles">Netherland Antilles</option>
+                                            <option style="background-color: #161129;" value="Netherlands">Netherlands (Holland, Europe)</option>
+                                            <option style="background-color: #161129;" value="Nevis">Nevis</option>
+                                            <option style="background-color: #161129;" value="New Caledonia">New Caledonia</option>
+                                            <option style="background-color: #161129;" value="New Zealand">New Zealand</option>
+                                            <option style="background-color: #161129;" value="Nicaragua">Nicaragua</option>
+                                            <option style="background-color: #161129;" value="Niger">Niger</option>
+                                            <option style="background-color: #161129;" value="Nigeria">Nigeria</option>
+                                            <option style="background-color: #161129;" value="Niue">Niue</option>
+                                            <option style="background-color: #161129;" value="Norfolk Island">Norfolk Island</option>
+                                            <option style="background-color: #161129;" value="Norway">Norway</option>
+                                            <option style="background-color: #161129;" value="Oman">Oman</option>
+                                            <option style="background-color: #161129;" value="Pakistan">Pakistan</option>
+                                            <option style="background-color: #161129;" value="Palau Island">Palau Island</option>
+                                            <option style="background-color: #161129;" value="Palestine">Palestine</option>
+                                            <option style="background-color: #161129;" value="Panama">Panama</option>
+                                            <option style="background-color: #161129;" value="Papua New Guinea">Papua New Guinea</option>
+                                            <option style="background-color: #161129;" value="Paraguay">Paraguay</option>
+                                            <option style="background-color: #161129;" value="Peru">Peru</option>
+                                            <option style="background-color: #161129;" value="Phillipines">Philippines</option>
+                                            <option style="background-color: #161129;" value="Pitcairn Island">Pitcairn Island</option>
+                                            <option style="background-color: #161129;" value="Poland">Poland</option>
+                                            <option style="background-color: #161129;" value="Portugal">Portugal</option>
+                                            <option style="background-color: #161129;" value="Puerto Rico">Puerto Rico</option>
+                                            <option style="background-color: #161129;" value="Qatar">Qatar</option>
+                                            <option style="background-color: #161129;" value="Republic of Montenegro">Republic of Montenegro</option>
+                                            <option style="background-color: #161129;" value="Republic of Serbia">Republic of Serbia</option>
+                                            <option style="background-color: #161129;" value="Reunion">Reunion</option>
+                                            <option style="background-color: #161129;" value="Romania">Romania</option>
+                                            <option style="background-color: #161129;" value="Russia">Russia</option>
+                                            <option style="background-color: #161129;" value="Rwanda">Rwanda</option>
+                                            <option style="background-color: #161129;" value="St Barthelemy">St Barthelemy</option>
+                                            <option style="background-color: #161129;" value="St Eustatius">St Eustatius</option>
+                                            <option style="background-color: #161129;" value="St Helena">St Helena</option>
+                                            <option style="background-color: #161129;" value="St Kitts-Nevis">St Kitts-Nevis</option>
+                                            <option style="background-color: #161129;" value="St Lucia">St Lucia</option>
+                                            <option style="background-color: #161129;" value="St Maarten">St Maarten</option>
+                                            <option style="background-color: #161129;" value="St Pierre &amp; Miquelon">St Pierre &amp; Miquelon</option>
+                                            <option style="background-color: #161129;" value="St Vincent &amp; Grenadines">St Vincent &amp; Grenadines</option>
+                                            <option style="background-color: #161129;" value="Saipan">Saipan</option>
+                                            <option style="background-color: #161129;" value="Samoa">Samoa</option>
+                                            <option style="background-color: #161129;" value="Samoa American">Samoa American</option>
+                                            <option style="background-color: #161129;" value="San Marino">San Marino</option>
+                                            <option style="background-color: #161129;" value="Sao Tome &amp; Principe">Sao Tome &amp; Principe</option>
+                                            <option style="background-color: #161129;" value="Saudi Arabia">Saudi Arabia</option>
+                                            <option style="background-color: #161129;" value="Senegal">Senegal</option>
+                                            <option style="background-color: #161129;" value="Serbia">Serbia</option>
+                                            <option style="background-color: #161129;" value="Seychelles">Seychelles</option>
+                                            <option style="background-color: #161129;" value="Sierra Leone">Sierra Leone</option>
+                                            <option style="background-color: #161129;" value="Singapore">Singapore</option>
+                                            <option style="background-color: #161129;" value="Slovakia">Slovakia</option>
+                                            <option style="background-color: #161129;" value="Slovenia">Slovenia</option>
+                                            <option style="background-color: #161129;" value="Solomon Islands">Solomon Islands</option>
+                                            <option style="background-color: #161129;" value="Somalia">Somalia</option>
+                                            <option style="background-color: #161129;" value="South Africa">South Africa</option>
+                                            <option style="background-color: #161129;" value="Spain">Spain</option>
+                                            <option style="background-color: #161129;" value="Sri Lanka">Sri Lanka</option>
+                                            <option style="background-color: #161129;" value="Sudan">Sudan</option>
+                                            <option style="background-color: #161129;" value="Suriname">Suriname</option>
+                                            <option style="background-color: #161129;" value="Swaziland">Swaziland</option>
+                                            <option style="background-color: #161129;" value="Sweden">Sweden</option>
+                                            <option style="background-color: #161129;" value="Switzerland">Switzerland</option>
+                                            <option style="background-color: #161129;" value="Syria">Syria</option>
+                                            <option style="background-color: #161129;" value="Tahiti">Tahiti</option>
+                                            <option style="background-color: #161129;" value="Taiwan">Taiwan</option>
+                                            <option style="background-color: #161129;" value="Tajikistan">Tajikistan</option>
+                                            <option style="background-color: #161129;" value="Tanzania">Tanzania</option>
+                                            <option style="background-color: #161129;" value="Thailand">Thailand</option>
+                                            <option style="background-color: #161129;" value="Togo">Togo</option>
+                                            <option style="background-color: #161129;" value="Tokelau">Tokelau</option>
+                                            <option style="background-color: #161129;" value="Tonga">Tonga</option>
+                                            <option style="background-color: #161129;" value="Trinidad &amp; Tobago">Trinidad &amp; Tobago</option>
+                                            <option style="background-color: #161129;" value="Tunisia">Tunisia</option>
+                                            <option style="background-color: #161129;" value="Turkey">Turkey</option>
+                                            <option style="background-color: #161129;" value="Turkmenistan">Turkmenistan</option>
+                                            <option style="background-color: #161129;" value="Turks &amp; Caicos Is">Turks &amp; Caicos Is</option>
+                                            <option style="background-color: #161129;" value="Tuvalu">Tuvalu</option>
+                                            <option style="background-color: #161129;" value="Uganda">Uganda</option>
+                                            <option style="background-color: #161129;" value="Ukraine">Ukraine</option>
+                                            <option style="background-color: #161129;" value="United Arab Erimates">United Arab Emirates</option>
+                                            <option style="background-color: #161129;" value="United Kingdom">United Kingdom</option>
+                                            <option style="background-color: #161129;" value="United States of America">United States of America</option>
+                                            <option style="background-color: #161129;" value="Uraguay">Uruguay</option>
+                                            <option style="background-color: #161129;" value="Uzbekistan">Uzbekistan</option>
+                                            <option style="background-color: #161129;" value="Vanuatu">Vanuatu</option>
+                                            <option style="background-color: #161129;" value="Vatican City State">Vatican City State</option>
+                                            <option style="background-color: #161129;" value="Venezuela">Venezuela</option>
+                                            <option style="background-color: #161129;" value="Vietnam">Vietnam</option>
+                                            <option style="background-color: #161129;" value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                                            <option style="background-color: #161129;" value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                                            <option style="background-color: #161129;" value="Wake Island">Wake Island</option>
+                                            <option style="background-color: #161129;" value="Wallis &amp; Futana Is">Wallis &amp; Futana Is</option>
+                                            <option style="background-color: #161129;" value="Yemen">Yemen</option>
+                                            <option style="background-color: #161129;" value="Zaire">Zaire</option>
+                                            <option style="background-color: #161129;" value="Zambia">Zambia</option>
+                                            <option style="background-color: #161129;" value="Zimbabwe">Zimbabwe</option>
+                                </select>
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="email1">Phone</label>
+                                <input type="text" class="form-control" id="phone" value="" placeholder="Your Phone number">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="password1">Password</label>
+                                <input type="password" class="form-control" id="password1" autocomplete="off"
+                                    placeholder="Your password">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="password2">Password Again</label>
+                                <input type="password" class="form-control" id="password2" autocomplete="off"
+                                    placeholder="Type password again">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mt-2 mb-1">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="customCheckb1">
+                                <label class="form-check-label" for="customCheckb1">
+                                    I agree <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms and
+                                        conditions</a>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-button-group transparent">
+                    <button type="button" id="submit" class="btn btn-primary btn-block btn-lg" onclick="register(this)" >Register</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <!-- * App Capsule -->
+
+
+    <!-- Terms Modal -->
+    <div class="modal fade modalbox" id="termsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms and Conditions</h5>
+                    <a href="#" data-bs-dismiss="modal">Close</a>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        DMG Blockchain Solutions Inc.’s website does not collect any personal information about visitors to this website other than that which is specifically and knowingly provided by you. That personal information will not be transferred to any third party unless otherwise stated at the time of collection. DMG Blockchain Solutions Inc. does collect and may maintain statistics relating to the number of visits to the website, the types of browsers used and the Internet Protocol Address of the originator. This information is used only for internal purposes.
+                         </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * Terms Modal -->
+     <!-- Content Action Sheet -->
+     <div class="modal fade action-sheet" id="faceVerification" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Facial Verification</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="action-sheet-content">
+                        <p>
+                           <center>position your face over the camera and take a snap </center> 
+                        </p>
+                        <a href="#" class="btn btn-primary btn-lg btn-block" data-bs-dismiss="modal">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * Content Action Sheet -->
+
+
+    <!-- ========= JS Files =========  -->
+    <!-- Bootstrap -->
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Splide -->
+    <script src="assets/js/plugins/splide/splide.min.js"></script>
+    <!-- Base Js File -->
+    <script src="assets/js/base.js"></script>
+    <script src="//code.tidio.co/snfiixzs48j9xvqzsppm1lxvowekeiyi.js" async></script>
+<!--whatsapp get button -->
+
+</body>
+
+</html>

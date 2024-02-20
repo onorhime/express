@@ -1,0 +1,10 @@
+<nav>
+        <ul class="pagination">
+            
+                {% for page in pagination.pages %}
+                    <li class="page-item {% if page.isCurrentPage %}disabled{% endif %}">
+                    <a type="button" href="{{page.url}}" dusk="nextPage" class="page-link" wire:click="nextPage" wire:loading.attr="disabled" rel="next" aria-label="Next &raquo;">{{page.pageNumber}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+</nav>
