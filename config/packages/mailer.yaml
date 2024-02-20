@@ -1,3 +1,4 @@
 framework:
     mailer:
-        dsn: '%env(MAILER_DSN)%'
+        dsn: 'smtp://support@expressmarketpro.net:08076551684%40@smtp.titan.email:465'
+        message_bus: false

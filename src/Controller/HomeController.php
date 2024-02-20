@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Notification;
 use App\Entity\User;
 use App\Repository\UserRepository;
+use App\Service\EmailSender;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +22,7 @@ class HomeController extends AbstractController
 {
    
     #[Route('/register', name: 'register')]
-    public function regster(Request $request, ManagerRegistry $doctrine, UserPasswordHasherInterface $userPasswordHasherInterface): JsonResponse
+    public function regster(EmailSender $emailSender, Request $request, ManagerRegistry $doctrine, UserPasswordHasherInterface $userPasswordHasherInterface): JsonResponse
     {
        
         if (null != $request->get('email')) {
@@ -53,7 +54,7 @@ class HomeController extends AbstractController
                      ->setTotaldeposit(0)
                      ->setTotalwithdrawal(0)
                      ->setImage($filename)
-                     ->setRoles(['ROLE_ADMIN'])
+                     ->setRoles(['ROLE_USER'])
                      ->setPassword(htmlspecialchars($request->get('password')));
                      if (null != $this->getRef($request->get('ref'), $doctrine->getRepository(User::class))) {
                         $user->setReferred($this->getRef( $request->get('ref'), $doctrine->getRepository(User::class)));
@@ -71,6 +72,7 @@ class HomeController extends AbstractController
                           ->setUser($user);
                     $em->persist($noti);
                     $em->flush();
+                    $emailSender->sendRegEmail($request->get('email'), 'Welcome Aboard', 'Welcome to Evolved Blockchain Solution', ['name'=>$request->get('name'), 'message'=>'']);
                      return $this->json(['status'=>'success','message'=>"User Created"]);
 
             }
@@ -133,4 +135,17 @@ class HomeController extends AbstractController
         $this->container->get("security.token_storage")->setToken($token);
         
     }
+
+    #[Route('/email', name: 'email')]
+    public function email(Request $request, ManagerRegistry $docrine): Response
+    {
+        
+        
+        return $this->render('email/depemail.html.twig',[
+            'content' => [
+                'name' => 'name'
+            ]
+        ]);
+    }
+
 }

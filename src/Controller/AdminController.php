@@ -7,6 +7,7 @@ use App\Entity\Notification;
 use App\Entity\Plan;
 use App\Entity\Transaction;
 use App\Entity\User;
+use App\Service\EmailSender;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Flasher\Symfony\Http\Request;
@@ -67,7 +68,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/withdrawallist', name: 'withdrawallist')]
-    public function withdrawals(ManagerRegistry $doctrine, HttpFoundationRequest $request): Response
+    public function withdrawals(ManagerRegistry $doctrine, HttpFoundationRequest $request, EmailSender $emailSender): Response
     {
         $withdrawals = $doctrine->getRepository(Transaction::class)->findBy(["type"=>"withdrawal", "status"=>"pending"]);
 
@@ -90,7 +91,8 @@ class AdminController extends AbstractController
                 ->setUser($this->getUser());
             $em->persist($noti);
             $em->flush();
-
+            $emailSender->sendDepEmail($user->getEmail(), 'Withdrawal Confirmed', "your withdrawal was confirmed successfully", ['name'=>$user->getName(), 'message'=>"your withdrawal of $$amount has been confirmed and deposited to your wallet successfuly"]);
+            
             noty()->addSuccess("wihdrawal was successfuly approved");
             return $this->redirectToRoute('withdrawallist');
             
@@ -120,7 +122,7 @@ class AdminController extends AbstractController
     }
 
     #[Route('/depositlist', name: 'depositlist')]
-    public function deposits(ManagerRegistry $doctrine, HttpFoundationRequest $request): Response
+    public function deposits(ManagerRegistry $doctrine, HttpFoundationRequest $request, EmailSender $emailSender): Response
     {
         $em = $doctrine->getManager();
         if(null != $request->get('approve')){
@@ -142,6 +144,9 @@ class AdminController extends AbstractController
                 ->setUser($this->getUser());
             $em->persist($noti);
             $em->flush();
+
+            $emailSender->sendDepEmail($user->getEmail(), 'Deposit Confirmed', "your deposit was confirmed successfully", ['name'=>$user->getName(), 'message'=>"your deposit of $$amount has been confirmed and deposited to your account successfuly"]);
+                   
 
             noty()->addSuccess("deposit was successfuly approved");
             return $this->redirectToRoute('depositlist');

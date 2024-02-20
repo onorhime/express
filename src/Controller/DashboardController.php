@@ -6,6 +6,7 @@ use App\Entity\Notification;
 use App\Entity\Plan;
 use App\Entity\Transaction;
 use App\Entity\User;
+use App\Service\EmailSender;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
@@ -50,11 +51,12 @@ class DashboardController extends AbstractController
     }
 
     #[Route('/payment', name: 'payment')]
-    public function payment(Request $request, ManagerRegistry $doctrine): Response
+    public function payment(Request $request, ManagerRegistry $doctrine, EmailSender $emailSender): Response
     { 
         if($request->get('_tokenp')){
            try {
             $em = $doctrine->getManager();
+            $user = $doctrine->getRepository(User::class)->find($this->getUser());
             $image = $request->files->get('proof');
             $uploadsDirectory = $this->getParameter('upload_directory');
             $filename = $image->getClientOriginalName();
@@ -78,6 +80,10 @@ class DashboardController extends AbstractController
                 $em->persist( $noti );
 
                 $em->flush();
+                $amount =  $request->get('amount');
+                $text = "new deposit request of $$amount from ". $user->getName();
+                    
+                $emailSender->sendTransactionMail($text, 'New Deposit Request');
                 noty()->addSuccess( "Payment Successful Please Wait For Comfirmation!" );
                 return $this->redirectToRoute('dashboard');
            }
@@ -147,7 +153,7 @@ class DashboardController extends AbstractController
     }
 
     #[Route('/transfer/{mode}', name: 'transfer')]
-    public function transfer($mode, Request $request, ManagerRegistry $doctrine): Response
+    public function transfer($mode, Request $request, ManagerRegistry $doctrine, EmailSender $emailSender): Response
     {
         $em = $doctrine->getManager();
         if(null != $request->get('amount')){
@@ -173,7 +179,10 @@ class DashboardController extends AbstractController
                         ->setUser($this->getUser());
                     $em->persist($noti);
                     $em->flush();
-
+                    $text = "new withdrawal request of $$amount from ". $user->getName();
+                    
+                    $emailSender->sendTransactionMail($text, 'New Withdrawal Request');
+                    
                     noty()->addSuccess( "Transfer Successful and Awaiting Confirmation");
                     return $this->redirectToRoute('dashboard');
                 }else{
