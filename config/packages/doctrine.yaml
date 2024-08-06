@@ -4,7 +4,7 @@ doctrine:
         dbname:       express
         charset:      utf8
         user:         root
-        password:     root
+        password:     
         driver:       pdo_mysql
         port:         3306
 
