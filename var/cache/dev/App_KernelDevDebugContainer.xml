@@ -1291,7 +1291,7 @@
     </service>
     <service id="mailer.transports" class="Symfony\Component\Mailer\Transport\Transports">
       <argument type="collection">
-        <argument key="main">smtp://support@expressmarketpro.net:08076551684%40@smtp.titan.email:465</argument>
+        <argument key="main">smtp://support@evolvedchain.net:08076551684%40@smtp.titan.email:465</argument>
       </argument>
       <factory service="mailer.transport_factory" method="fromStrings"/>
     </service>
@@ -1299,7 +1299,7 @@
       <argument type="tagged_iterator" tag="mailer.transport_factory"/>
     </service>
     <service id="mailer.default_transport" class="Symfony\Component\Mailer\Transport\TransportInterface">
-      <argument>smtp://support@expressmarketpro.net:08076551684%40@smtp.titan.email:465</argument>
+      <argument>smtp://support@evolvedchain.net:08076551684%40@smtp.titan.email:465</argument>
       <factory service="mailer.transport_factory" method="fromString"/>
     </service>
     <service id="mailer.messenger.message_handler" class="Symfony\Component\Mailer\Messenger\MessageHandler">

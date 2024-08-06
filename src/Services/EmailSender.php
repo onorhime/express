@@ -21,7 +21,7 @@ class EmailSender
     public function sendRegEmail($to, $subject, $title, $content)
     {
         $email = (new TemplatedEmail())
-            ->from(new Address('support@expressmarketpro.net', 'Evolved Blockchain Solution'))
+            ->from(new Address('support@evolvedchain.net', 'Evolved Blockchain Solution'))
             ->to($to)
             ->subject($subject)
             ->htmlTemplate('email/regemail.html.twig')
@@ -31,8 +31,8 @@ class EmailSender
             ]);
 
         $admMail = (new Email());
-        $admMail->from(new Address("support@expressmarketpro.net", "Evolved Blockchain Solution"))
-                ->to("support@expressmarketpro.net")
+        $admMail->from(new Address("support@evolvedchain.net", "Evolved Blockchain Solution"))
+                ->to("support@evolvedchain.net")
                 ->subject('New User Registration')
                 ->text("new user registration from ".$content['name']);
 
@@ -44,8 +44,8 @@ public function sendTransactionMail($text, $subject)
 {
 
     $admMail = (new Email());
-    $admMail->from(new Address("support@expressmarketpro.net", "Evolved Blockchain Solution"))
-            ->to("support@expressmarketpro.net")
+    $admMail->from(new Address("support@evolvedchain.net", "Evolved Blockchain Solution"))
+            ->to("support@evolvedchain.net")
             ->subject($subject)
             ->text($text);
     $this->mailer->send($admMail);
@@ -54,7 +54,7 @@ public function sendTransactionMail($text, $subject)
 public function sendDepEmail($to, $subject, $title, $content)
 {
     $email = (new TemplatedEmail())
-        ->from(new Address('support@expressmarketpro.net', 'Evolved Blockchain Solution'))
+        ->from(new Address('support@evolvedchain.net', 'Evolved Blockchain Solution'))
         ->to($to)
         ->subject($subject)
         ->htmlTemplate('email/depemail.html.twig')

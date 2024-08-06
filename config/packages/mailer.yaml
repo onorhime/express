@@ -1,4 +1,4 @@
 framework:
     mailer:
-        dsn: 'smtp://support@expressmarketpro.net:08076551684%40@smtp.titan.email:465'
+        dsn: 'smtp://support@evolvedchain.net:jHukNq^bjHwY@mail.blocktechltd.org:465'
         message_bus: false
