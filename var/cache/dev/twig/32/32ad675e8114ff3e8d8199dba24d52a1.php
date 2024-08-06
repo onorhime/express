@@ -81,7 +81,7 @@ class __TwigTemplate_88a4c7e265df7b2a96382881e1443f9c extends Template
                     <div class=\"row\">
                 <div class=\"col-12\">
                     <div class=\"py-4 alert alert-info alert-dismissible fade show\" role=\"alert\">
-                        Welcome to Evolved Blockchain Solutionsr version 5 with a lot of Security Features,
+                        Welcome to Evolved Blockchain Solutions version 5 with a lot of Security Features,
                         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
                     </div>
                 </div>
@@ -566,7 +566,7 @@ class __TwigTemplate_88a4c7e265df7b2a96382881e1443f9c extends Template
                     <div class=\"row\">
                 <div class=\"col-12\">
                     <div class=\"py-4 alert alert-info alert-dismissible fade show\" role=\"alert\">
-                        Welcome to Evolved Blockchain Solutionsr version 5 with a lot of Security Features,
+                        Welcome to Evolved Blockchain Solutions version 5 with a lot of Security Features,
                         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
                     </div>
                 </div>
