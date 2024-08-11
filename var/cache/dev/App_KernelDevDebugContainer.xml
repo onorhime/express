@@ -3540,8 +3540,8 @@
       <argument type="collection">
         <argument key="dbname">express</argument>
         <argument key="charset">utf8</argument>
-        <argument key="user">general</argument>
-        <argument key="password">.lxG5mEBFVauw[OP</argument>
+        <argument key="user">root</argument>
+        <argument key="password">null</argument>
         <argument key="driver">pdo_mysql</argument>
         <argument key="port">3306</argument>
         <argument key="use_savepoints">true</argument>

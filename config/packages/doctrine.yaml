@@ -3,8 +3,8 @@ doctrine:
         #url: '%env(resolve:DATABASE_URL)%'
         dbname:       express
         charset:      utf8
-        user:         general
-        password:     .lxG5mEBFVauw[OP
+        user:         root
+        password:     
         driver:       pdo_mysql
         port:         3306
 

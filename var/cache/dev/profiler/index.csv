@@ -14,3 +14,13 @@ fcb425,127.0.0.1,GET,http://evolve.loc/meta.json,1722921772,,404,request
 407df5,127.0.0.1,GET,http://evolve.loc/meta.json,1722921774,,404,request
 72b1d2,127.0.0.1,GET,http://evolve.loc/meta.json,1722921774,a873df,404,request
 a873df,127.0.0.1,GET,http://evolve.loc/meta.json,1722921774,,404,request
+0f18f5,127.0.0.1,POST,http://evolve.loc/register,1722925570,,200,request
+197272,127.0.0.1,GET,http://evolve.loc/dashboard,1722925574,,301,request
+606ca1,127.0.0.1,GET,http://evolve.loc/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DApp%255CController%255CDashboardController%253A%253Anav,1722925575,b0a03a,200,request
+b0a03a,127.0.0.1,GET,http://evolve.loc/dashboard/,1722925575,,200,request
+c479ed,127.0.0.1,GET,http://evolve.loc/vendor/livewire/livewire.js?id=fe747446aa84856d8b66,1722925576,536ec4,404,request
+536ec4,127.0.0.1,GET,http://evolve.loc/vendor/livewire/livewire.js?id=fe747446aa84856d8b66,1722925576,,404,request
+cc97e8,127.0.0.1,GET,http://evolve.loc/meta.json,1722925579,472ab4,404,request
+472ab4,127.0.0.1,GET,http://evolve.loc/meta.json,1722925579,,404,request
+e81bc1,127.0.0.1,GET,http://evolve.loc/meta.json,1722925582,9df8cf,404,request
+9df8cf,127.0.0.1,GET,http://evolve.loc/meta.json,1722925582,,404,request
